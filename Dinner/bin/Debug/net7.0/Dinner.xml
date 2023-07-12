@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dinner</name>
+    </assembly>
+    <members>
+        <member name="F:Dinner.Controllers.DinnerController.appDbContext">
+            <Summary>
+             Get these comments1
+            </Summary>
+        </member>
+        <member name="M:Dinner.Controllers.DinnerController.AddDinnerOrder(Dinner.Models.DinnerOrder)">
+             <summary>
+             Returns a collection of URLs
+             </summary>
+             <param name="slugs">list of slugs to retrieve</param>
+             <remarks>
+             Sample request:
+            
+                 Get /api/slugscollection/(d25tRx, fN5jpz)
+            
+             </remarks>
+             <returns>IEnumerable of slugs</returns>
+             <response code="200">If all requested items are 
+             found</response>
+             <response code="400">If slugs parameter is missing</response>
+             <response code="404">If number of records found doesn't equal 
+             number of records requested</response>
+        </member>
+        <member name="P:Dinner.Data.AppDbContext.DinnerOrders">
+            <Summary>
+             Get these AppDbContext commetns
+            </Summary>
+        </member>
+        <member name="T:Dinner.Migrations.InitialData">
+            <inheritdoc />
+        </member>
+        <member name="M:Dinner.Migrations.InitialData.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dinner.Migrations.InitialData.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dinner.Migrations.InitialData.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="P:Dinner.Models.DinnerOrder.Name">
+            <summary>
+            Name of the Order. This is a string value.
+            </summary>
+        </member>
+        <member name="P:Dinner.Models.MenuItem.Id">
+            <Summary>
+             Get these Menu Items
+            </Summary>
+        </member>
+    </members>
+</doc>
