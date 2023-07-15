@@ -6,8 +6,9 @@ namespace Dinner.Models
         public int Id { get; set; }
 
         /// <summary>
-        /// Name of the Order. This is a string value.
+        ///     example summary
         /// </summary>
+        /// <example>type something</example>
         public string Name { get; set; } = string.Empty;
         public string Restaurant { get; set; } = string.Empty;
 

@@ -5,27 +5,44 @@
     </assembly>
     <members>
         <member name="F:Dinner.Controllers.DinnerController.appDbContext">
-            <Summary>
-             Get these comments1
-            </Summary>
+            <Summary>Get these comments1</Summary>
         </member>
         <member name="M:Dinner.Controllers.DinnerController.AddDinnerOrder(Dinner.Models.DinnerOrder)">
              <summary>
-             Returns a collection of URLs
+             Creates a Dinner record which  can include name of dinner tpye, restaurant name and items ordered.
              </summary>
-             <param name="slugs">list of slugs to retrieve</param>
+             <param name="newDinnerOrder">A New Dinner order record</param>
+             <returns>A newly created TodoItem</returns>
              <remarks>
              Sample request:
             
-                 Get /api/slugscollection/(d25tRx, fN5jpz)
+                 POST /Dinner
+                 {
+                    "id": 0,   // Don't need to enter-system generated
+                    "name": "Cold Sandwiches",
+                    "restaurant": "Half Peach",
+                     "menuItems": [
+                     {
+                         "id": 0,   //leave as 0 - system generated
+                      "name": "cuban"
+                    
+                      },
+                      {
+                         "id": 0,     ///leave as 0 - system generated
+                      "name": "po boy sandwhich"
+                    
+                      }
             
              </remarks>
-             <returns>IEnumerable of slugs</returns>
-             <response code="200">If all requested items are 
-             found</response>
-             <response code="400">If slugs parameter is missing</response>
-             <response code="404">If number of records found doesn't equal 
-             number of records requested</response>
+             <response code="201">Returns the newly created item</response>
+             <response code="400">If the item is null</response>
+        </member>
+        <member name="M:Dinner.Controllers.DinnerController.GetstringById(System.Int32)">
+            <summary>
+            Get a specific Dinner record.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
         </member>
         <member name="P:Dinner.Data.AppDbContext.DinnerOrders">
             <Summary>
@@ -46,8 +63,9 @@
         </member>
         <member name="P:Dinner.Models.DinnerOrder.Name">
             <summary>
-            Name of the Order. This is a string value.
+                example summary
             </summary>
+            <example>type something</example>
         </member>
         <member name="P:Dinner.Models.MenuItem.Id">
             <Summary>

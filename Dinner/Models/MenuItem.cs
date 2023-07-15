@@ -1,4 +1,6 @@
-﻿namespace Dinner.Models
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+
+namespace Dinner.Models
 {
     public class MenuItem
     {
@@ -7,5 +9,7 @@
         ///</Summary>
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
+
+        ForeignKey DinnerOrderId { get; set; }
     }
 }
