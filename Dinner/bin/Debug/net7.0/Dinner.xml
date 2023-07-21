@@ -37,28 +37,29 @@
              <response code="201">Returns the newly created item</response>
              <response code="400">If the item is null</response>
         </member>
-        <member name="M:Dinner.Controllers.DinnerController.GetstringById(System.Int32)">
+        <member name="M:Dinner.Controllers.DinnerController.GetOrderById(System.Int32)">
             <summary>
             Get a specific Dinner record.
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="P:Dinner.Data.AppDbContext.DinnerOrders">
+        <member name="M:Dinner.Data.AppDbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <Summary>
              Get these AppDbContext commetns
             </Summary>
+            
         </member>
-        <member name="T:Dinner.Migrations.InitialData">
+        <member name="T:Dinner.Migrations.Initial">
             <inheritdoc />
         </member>
-        <member name="M:Dinner.Migrations.InitialData.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:Dinner.Migrations.Initial.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:Dinner.Migrations.InitialData.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:Dinner.Migrations.Initial.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:Dinner.Migrations.InitialData.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+        <member name="M:Dinner.Migrations.Initial.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
         <member name="P:Dinner.Models.DinnerOrder.Name">

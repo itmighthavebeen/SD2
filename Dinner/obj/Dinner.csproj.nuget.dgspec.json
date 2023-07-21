@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projects\\Dinner\\Dinner.csproj": {}
+    "C:\\finalrepository\\Dinner\\Dinner.csproj": {}
   },
   "projects": {
-    "C:\\Projects\\Dinner\\Dinner.csproj": {
+    "C:\\finalrepository\\Dinner\\Dinner.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\Dinner\\Dinner.csproj",
+        "projectUniqueName": "C:\\finalrepository\\Dinner\\Dinner.csproj",
         "projectName": "Dinner",
-        "projectPath": "C:\\Projects\\Dinner\\Dinner.csproj",
+        "projectPath": "C:\\finalrepository\\Dinner\\Dinner.csproj",
         "packagesPath": "C:\\Users\\cramsey\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\Dinner\\obj\\",
+        "outputPath": "C:\\finalrepository\\Dinner\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\cramsey\\AppData\\Roaming\\NuGet\\NuGet.Config",

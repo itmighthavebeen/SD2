@@ -60,7 +60,8 @@ namespace Dinner.Migrations
                 {
                     b.HasOne("Dinner.Models.DinnerOrder", null)
                         .WithMany("MenuItems")
-                        .HasForeignKey("DinnerOrderId");
+                        .HasForeignKey("DinnerOrderId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Dinner.Models.DinnerOrder", b =>

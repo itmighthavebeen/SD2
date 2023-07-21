@@ -5,7 +5,7 @@
 namespace Dinner.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialData : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -21,7 +21,7 @@ namespace Dinner.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DinnerOrders", x => x.Id);
+                    table.PrimaryKey("PK_DinnerOrders", x => x.Id);                   
                 });
 
             migrationBuilder.CreateTable(
@@ -40,7 +40,8 @@ namespace Dinner.Migrations
                         name: "FK_MenuItems_DinnerOrders_DinnerOrderId",
                         column: x => x.DinnerOrderId,
                         principalTable: "DinnerOrders",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

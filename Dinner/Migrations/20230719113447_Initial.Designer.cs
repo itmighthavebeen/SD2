@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Dinner.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230707013055_InitialData")]
-    partial class InitialData
+    [Migration("20230719113447_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -63,7 +63,8 @@ namespace Dinner.Migrations
                 {
                     b.HasOne("Dinner.Models.DinnerOrder", null)
                         .WithMany("MenuItems")
-                        .HasForeignKey("DinnerOrderId");
+                        .HasForeignKey("DinnerOrderId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Dinner.Models.DinnerOrder", b =>

@@ -10,6 +10,6 @@ namespace Dinner.Models
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
 
-        ForeignKey DinnerOrderId { get; set; }
+       // public int DinnerOrderId { get; set; }
     }
 }
