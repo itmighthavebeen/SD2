@@ -29,17 +29,17 @@ namespace Dinner.Controllers
 
 
         /// <summary>
-        /// Creates a Dinner record which  can include name of dinner tpye, restaurant name and items ordered.
+        /// Creates a Dinner record which will include name of dinner type and can include the restaurant name and items ordered.
         /// </summary>
         /// <param name="newDinnerOrder">A New Dinner order record</param>
-        /// <returns>A newly created TodoItem</returns>
+        /// <returns>A newly created Dinner Order</returns>
         /// <remarks>
         /// Sample request:
         ///
         ///     POST /Dinner
         ///     {
         ///        "id": 0,   // Don't need to enter-system generated
-        ///        "name": "Cold Sandwiches",
+        ///        "name": "Cold Sandwiches",  //Required!
         ///        "restaurant": "Half Peach",
         ///         "menuItems": [
         ///         {
@@ -54,11 +54,11 @@ namespace Dinner.Controllers
         ///          }
         ///
         /// </remarks>
-        /// <response code="201">Returns the newly created item</response>
+        /// <response code="200">Returns the newly created item</response>
         /// <response code="400">If the item is null</response>
         //Create a Dinner
         [HttpPost]
-        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
 
         public async Task<ActionResult<List<DinnerOrder>>> AddDinnerOrder(DinnerOrder newDinnerOrder)
@@ -77,9 +77,57 @@ namespace Dinner.Controllers
         }
 
 
-
+        /// <summary>
+        /// GETS all Dinner records with their corresponding Menu Items
+        /// </summary>
+        /// <returns>A list of all Dinner Orders with Menu Items in the database</returns>
+        /// <remarks>
+        /// Sample reponse:
+        ///
+        ///     GET /Dinner
+        ///     {
+        ///        "id": 0,   // Don't need to enter-system generated
+        ///        "name": "Cold Sandwiches",  //Required!
+        ///        "restaurant": "Half Peach",
+        ///         "menuItems": [
+        ///         {
+        ///             "id": 0,   //leave as 0 - system generated
+        ///          "name": "cuban"
+        ///        
+        ///          },
+        ///          {
+        ///             "id": 0,     ///leave as 0 - system generated
+        ///          "name": "po boy sandwhich"
+        ///        
+        ///      }
+        ///       {
+        ///        "id": 0,   // Don't need to enter-system generated
+        ///        "name": "Vegan KFC",  //Required!
+        ///        "restaurant": "any KFC Edinburgh Scotland",
+        ///         "menuItems": [
+        ///         {
+        ///             "id": 0,   //leave as 0 - system generated
+        ///          "name": "Original Recipe vegan Chicken"
+        ///        
+        ///          },
+        ///          {
+        ///             "id": 0,     ///leave as 0 - system generated
+        ///          "name": "vegan french fries"
+        ///        
+        ///      }
+        ///
+        /// </remarks>
+        /// <response code="200">Returns all database records</response>
+        /// <response code="304">Redirection Not Modified</response>
+        /// <response code="400">If the item is null</response>
+        /// <response code="500">Internal Server Error</response>
+      
         //Get All DinnerOrders
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status304NotModified)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<DinnerOrder>>> GetAllDinnerOrders()
         {
            
@@ -105,11 +153,39 @@ namespace Dinner.Controllers
         /// Get a specific Dinner record.
         /// </summary>
         /// <param name="id"></param>
-        /// <returns></returns>
+        /// <returns>A list of all Dinner Orders with Menu Items in the database</returns>
+        /// <remarks>
+        /// Sample response where # is the entered Id:
+        ///
+        ///     GET /Dinner
+        ///     {
+        ///        "id": #,   // The id of the Dinner record requested
+        ///        "name": "Cold Sandwiches",  //Required!
+        ///        "restaurant": "Half Peach",
+        ///         "menuItems": [
+        ///         {
+        ///             "id": 0,   //system generated id for Menu Item
+        ///          "name": "cuban"
+        ///        
+        ///          },
+        ///          {
+        ///             "id": 0,     ///system generated id for Menu Item
+        ///          "name": "po boy sandwhich"
+        /// </remarks>
+        /// <response code="200">Return requested record by Id - SUCCESS </response>
+        /// <response code="404">Not Found!</response>
+        /// <response code="400">Client Error</response>
+        /// <response code="500">Internal Server Error</response>
+
         //Get Dinner Order By Id
         [HttpGet("{id}", Name =nameof(GetOrderById))]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
 
-          public async Task<ActionResult<List<DinnerOrder>>> GetOrderById(int id)
+
+        public async Task<ActionResult<List<DinnerOrder>>> GetOrderById(int id)
         
             {
             var dinnerOrders = await appDbContext.DinnerOrders.ToListAsync();
@@ -125,29 +201,71 @@ namespace Dinner.Controllers
                 //  return Ok(dinnerOrders.FirstOrDefault(o => o.Id == id));
                 return NotFound();
             }
-
-
-            //    private ActionResult<List<DinnerOrder>> Ok(List<DinnerOrder> dinnerOrders, List<MenuItem> menuItems)
-            //    {
-            //        throw new NotImplementedException();
         }
 
-
+        /// <summary>
+        /// PUT a change to a Dinner Record.
+        /// Change the Dinner Name, Restuarant Name and/or ADD a menu item
+        /// </summary>
+        /// <param name="id"></param>
+        ///  /// <param name="dinnerOrder"></param>
+        /// <returns>Changed Dinner Order record </returns>
+        /// <remarks>
+        /// Sample response where # is the entered Id:
+        ///
+        ///     GET /Dinner
+        ///     {
+        ///        "id": #,   // The id of the Dinner record requested
+        ///        "name": "Cold Sandwiches",  //Required!
+        ///        "restaurant": "Half Peach",
+        ///         "menuItems": [
+        ///         {
+        ///             "id": 0,   //system generated id for Menu Item
+        ///          "name": "cuban"
+        ///        
+        ///          },
+        ///          {
+        ///             "id": 0,     ///system generated id for Menu Item
+        ///          "name": "po boy sandwhich"
+        /// </remarks>
+        /// <response code="200">Return requested record by Id - SUCCESS </response>
+        /// <response code="404">Not Found!</response>
+        /// <response code="400">Client Error</response>
+        /// <response code="500">Internal Server Error</response>
         //Make a Change (PUT) DinnerOrders
-        [HttpPut]
 
-        public async Task<ActionResult<DinnerOrder>> PutString(int id, DinnerOrder dinnerOrder)
+        [HttpPut ("{id}", Name =nameof(dinnerOrder))]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+
+        public async Task<ActionResult<DinnerOrder>> PutString(int id, [FromBody] DinnerOrder dinnerOrder)
         {
             var oldDinnerOrder = await appDbContext.DinnerOrders.FirstOrDefaultAsync(x => x.Id == id);
+            //    var oldMenuItem = await appDbContext.MenuItems.ToListAsync();
+            //   var thisItem = new List<MenuItem>;
+
             //  var oldMenuItems = await appDbContext.MenuItems.FirstOrDefault(x => x.)
 
+            //  foreach (var Name in oldMenuItem) { 
+            //  oldMenuItem = dinnerOrder.MenuItems.FirstOrDefault(x =>x.Id == id)};
             if (oldDinnerOrder != null)
             {
                 oldDinnerOrder.Name = dinnerOrder.Name;
                 oldDinnerOrder.Restaurant = dinnerOrder.Restaurant;
                 oldDinnerOrder.MenuItems = dinnerOrder.MenuItems;
             }
-            appDbContext.SaveChanges();
+
+            else
+            {
+
+                oldDinnerOrder.Name = oldDinnerOrder.Name;
+                oldDinnerOrder.Restaurant = oldDinnerOrder.Restaurant;
+                oldDinnerOrder.MenuItems = oldDinnerOrder.MenuItems;
+            }
+
+             await appDbContext.SaveChangesAsync();
             return Ok(oldDinnerOrder);
 
         }
