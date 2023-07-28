@@ -23,20 +23,38 @@ To GET by Id, enter the Id. The response is the DinnerOrder record and all MenuI
 To PUT, enter the Id of the record to change.  Put will update Dinner Name, update Restaurant Name, update a menu item (must put in the menu item id) or will ADD a menu item.  The updated record items are returned in the response.
 
 This is a sample request body. MenuItem with Id 47 is updating the name and a new MenuItem is also being added to the DinnerOrder Id record.
+
 {
   "id": 0,
+  
   "name": "Vietnamese",
+  
   "restaurant": "Heart and Soy",
+  
   "menuItems": [
-    {
-      "id": 47,
-      "name": "Vietnamese Sandwich "
-    },
+   
+   {
+   
+   "id": 47,
+  
+  "name": "Vietnamese Sandwich "
+  
+  },
+ 
  {
-      "id": 0,
-      "name": "Vietnamese Rice Noodle Salad W/ Eggroll And Tofu  "
-    }
-  ]
+   
+   "id": 0,
+   
+   "name": "Vietnamese Rice Noodle Salad W/ Eggroll And Tofu  "
+   
+   }
+ 
+ 
+ ]
+
 }
 
 To DELETE, enter the Id of the record to remove.  The removed record is returned as the response.
+
+
+NOTE - Let's Travel Currency is also on this repository but is the project from last semester.
