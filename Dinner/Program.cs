@@ -1,13 +1,11 @@
 using Dinner.Data;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Sqlite;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
-using System.IO;
-using System.Xml.XPath;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
 
 // Add services to the container.
 
@@ -43,14 +41,6 @@ builder.Services.AddSwaggerGen(options =>
     var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 });
-/*
-builder.Services.AddSwaggerGen(options =>
-{
- //   options.SwaggerDoc("v1", new OpenApiInfo { Title = "What's For Dinner", Version = "v1" });
-  //  options.IncludeXmlComments();
-
-    //options.IncludeXmlComments(XmlCommentsFilePath);
-});*/
 builder.Services.AddDbContext<AppDbContext>(Options =>
 {
     Options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
@@ -66,7 +56,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "What's for Dinner V1");
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "What's for Dinner V1.4");
     });
 }
 

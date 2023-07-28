@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
-
-namespace Dinner.Models
+﻿namespace Dinner.Models
 {
     public class MenuItem
     {

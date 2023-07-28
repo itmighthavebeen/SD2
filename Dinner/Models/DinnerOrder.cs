@@ -10,13 +10,13 @@ namespace Dinner.Models
         /// <summary>
         /// example of Dinner record
         /// </summary>
-        /// <example>REQUIRED dinner name for example mexican, vegan, sandwiches, etc.</example>
+        /// <example>Dinner Name </example>
         [Required]
         public string Name { get; set; } = string.Empty;
 
-        /// <example>Name of restaurant where this meal is ordered</example>
+        /// <example>Restaurant Name</example>
         public string Restaurant { get; set; } = string.Empty;
 
-        public required List<MenuItem> MenuItems { get; set; }
+        public List<MenuItem>? MenuItems { get; set; }
     }
 }

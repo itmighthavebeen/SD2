@@ -5,7 +5,7 @@
 namespace Dinner.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class Initialize : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -21,7 +21,7 @@ namespace Dinner.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DinnerOrders", x => x.Id);                   
+                    table.PrimaryKey("PK_DinnerOrders", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(

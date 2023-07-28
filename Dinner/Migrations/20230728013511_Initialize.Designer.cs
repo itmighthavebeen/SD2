@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Dinner.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230719113447_Initial")]
-    partial class Initial
+    [Migration("20230728013511_Initialize")]
+    partial class Initialize
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
