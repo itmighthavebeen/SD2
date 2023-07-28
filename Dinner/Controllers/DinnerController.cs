@@ -64,7 +64,7 @@ namespace Dinner.Controllers
                 await appDbContext.SaveChangesAsync();
                 var allRecords = await appDbContext.DinnerOrders.ToListAsync();
                 _ = await appDbContext.MenuItems.ToListAsync();
-                return Ok(allRecords);
+                return Ok(newDinnerOrder);
             }
             return BadRequest("Id must be an integer");
         }

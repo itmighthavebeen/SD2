@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2sulUzK6k4goLMPpaBBjDzHrVZMIP4A4XimqqCKqW2gDp4ybwrymjUFa6ctPQX/uz2hMEIsUang7i7zGumxyyA==",
+  "dgSpecHash": "uHup5Qtq6NUTQmn+L5r5LcpmXPv3eAY1jmkJ05Ofy98/O9mHKbjMWnDrQjecxfHeg5W7PSan2cPr1zIqsTD88A==",
   "success": true,
-  "projectFilePath": "C:\\finalrepository\\Dinner\\Dinner.csproj",
+  "projectFilePath": "C:\\Project_SD2\\SD2\\Dinner\\Dinner.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\cramsey\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\cramsey\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
